@@ -1,0 +1,82 @@
+\documentclass[letterpaper, 13pt]{article}
+\usepackage[CVM]{morazan}
+
+%opening
+\title{\bfseries \huge Documento de prueba}
+\author{\bfseries \Large Diego Morazán}
+
+\begin{document}
+
+\maketitle
+
+Este será un documento de prueba sobre cómo se mira de una manera muy sencilla \texttt{\textbackslash usepackage[CVM]\{morazan\}}.
+
+\section{Divisibilidad}
+\begin{definicion}{Divisibilidad}{}
+	Sean $a,b \in \ZZ$ entonces se dice que $a \mid b$ si y sólo sí existe un $c\in\ZZ$  tal que $ac=b$.
+\end{definicion}
+El manejo de sus propiedades puede llegar a ser vital en la resolución de ciertos ejercicios. Con ello, las propiedades básicas que suelen ser usadas en los problemas de Olimpiadas son: 
+ \begin{enumerate}
+	\item Para todo entero $a \mid a$. \\
+	\textbf{Demostración:} Recordemos que por definición de divisibilidad, para que se cumpla que $a \mid a$ debe existir algún entero $k$ tal que $ak=a$, trivialmente en este caso $k=1$. $\blacksquare$ \\
+	\item Si $a\mid b$ y $b \mid c$ entonces $a \mid c$.
+	\\
+	\textbf{Demostración:} Tenemos que $b=an$ y $c=bm$, para algunos enteros $m$ y $n$. Entonces sustituyendo $b$ en la segunda condición obtenemos que $c=(an)m=anm$(Por condición de la propiedad). Ahora, veamos que como $n,m$ son enteros, su producto también ha de ser un entero, así que podemos decir que $mn=k$, siendo $k$ un entero. O sea, $c=a(nm)=ak$, veamos que esto es la definición de divisibilidad, porque existe un entero positivo tal que su producto con $a$ va a ser $c$. En pocas palabras, si $c=ak \Longrightarrow a\mid c$. $\blacksquare$ \\
+	\item Si $a \mid b$ y $c$ es un entero, entonces $a \mid bc$.
+	\\
+	\textbf{Demostración:} Por hipótesis, $b=ak$, entonces si se multiplica por algún entero $c$ en ambos lados y por la propiedad de los números reales, se obtiene que $bc=akc$. En esta igualdad, haremos algo parecido a la anterior demostración: como $k,c$ son enteros, podemos decir que su producto $kc=p$, donde $p$ es un entero positivo. Por lo tanto, $bc=a(kc)=ap$, lo cual es nuevamente la definición de divisibilidad pues $p$ es un entero. Entonces $a \mid bc$. $\blacksquare$\newpage
+	\item Si $a \mid b$ y $b \mid a$ entonces $\lvert a \rvert = \lvert b \rvert $.
+	\\
+	\textbf{Demostración:} En esta tendríamos que $a=bn$ y $b=am$. Sustituyendo a $b$ en la primera igualdad obtenemos que: \begin{gather*}
+		a=(am)n \Rightarrow a=amn \\
+		\Rightarrow a-amn=0 \Rightarrow a(1-mn)=0 \\
+		\Rightarrow mn=1 \quad \text{ Se obtiene esto debido a que $a \neq 0$}
+	\end{gather*}
+	Ahora veamos que si $m,n$ son enteros, las únicas ternas de enteros tales que su producto es 1, son $(-1,-1)$ y $(1,1)$. Analizando la primera terna donde $m=-1$, se tiene que $b=-a$. En la segunda terna se deduce que $a=b$. Podemos observar que en ambos casos $\lvert a \rvert = \lvert b \rvert $. $\blacksquare$\\ \textbf{Nota:} Si se tiene que $a,b$ son enteros positivos que cumplen dicha propiedad, simplemente $a=b$.
+	\item Si $a \mid b$ y $k$ es un entero, entonces $ak \mid bk$.
+	\\
+	\textbf{Demostración:} Esta propiedad es básicamente una consecuencia directa de la demostración de la propiedad 3, por ello se invita al lector a demostrarla\\
+	\item Si $a \mid b$ y $c \mid b$ entonces $ac \mid bd$.
+	\\
+	\textbf{Demostración:} Sabemos que $b=an$ y $d=cm$, multiplicando ambas igualdades bajo propiedad de los números reales: $acmn=bd$. Ahora, digamos que $ac=p$ y $mn=q$, entonces $pq=cd$, o sea $p \mid bd$, por definición de divisibilidad. Recordemos que $p=ac$, por lo tanto $ac \mid bd$. $\blacksquare$\\
+	\item Si $a \mid b$ y $a \mid c$ entonces $a \mid b + c$ y también $a \mid b -c$.
+	\\
+	\textbf{Demostración:} Tenemos que $an=b$ y $am=c$, Entonces: \begin{gather*}
+		b+c=an+am \\ b+c=a(n+m) \\ \text{Sea $n+m=k$ ya que la suma de dos enteros es un entero.} \\
+		\Rightarrow ak=b+c \Rightarrow \boxed{ a\mid b+c} \\
+		b-c=an-am \\
+		b-c=a(n-m) \\ 
+		\text{Sea $n-m=k$. Acá aplicamos el mismo procedimiento.} \\ 
+		\Rightarrow ak=b-c \Rightarrow \boxed{a \mid b-c}
+	\end{gather*}
+	Con esto, se demuestran las dos propiedades. $\blacksquare$\\
+	\item Si $a \mid b$ y $a \mid b\pm c$ entonces $a \mid c$.
+	\\
+	\textbf{Demostración:} Sabemos que $b=an$ y $b+c=ak$, entonces: \begin{gather*}
+		b+c=ak \Rightarrow an+c=ak \\ 
+		\Rightarrow c=ak-an \\ 
+		\therefore c=a(k-n)
+	\end{gather*}
+	Ahora, podemos decir que $k-n=m$ para algún entero $m$, pues la resta de dos números enteros es un número entero también. Por ello, $c=a(k-n)=am \Rightarrow  a\mid c$. Podemos ver que hicimos lo ``inverso'' a lo que hicimos en la anterior demostración, ahora demostrar que $a \mid b-c$ es prácticamente el mismo procedimiento que hicimos acá, solo que con otras operaciones. $\blacksquare$ 
+\end{enumerate}
+\newpage 
+Entonces, con esto se muestra a continuación un ejemplo donde se pueden llegar a utilizar éstas:
+\begin{ejemplo}{Ejercicio aplicando propiedades de divisibilidad}{}
+Encuentre todos los números naturales $n$ tales que el número $\dfrac{7n+19}{n+2}$ sea un número entero. 
+\end{ejemplo} 
+\textit{Solución:} Podemos ver de la propiedad \textbf{1) } que $n+2 \mid n+2$, pero, así mismo 7 es un entero, así que al combinar la propiedad \textbf{3) }, tenemos que: $$n+2 \mid 7(n+2) \Longrightarrow n+2 \mid 7n+14$$
+Ahora, esto nos puede servir si combinamos esta nueva condición con la propiedad \textbf{7)}, ya que podemos decir que si $n+2 \mid 7n+19$ ya que dicha división ha de ser un entero, y por la nueva propiedad $ n+2 \mid 7n+14$, entonces la resta de los dos también será divisible por $n+2$, en otras palabras:
+$$ \text{Si} \hspace*{0.1cm}\begin{cases}
+	n+2 \mid 7n+19\\
+	n+2 \mid 7n+14
+\end{cases} \Longrightarrow n+2 \mid 7n+19-(7n+14)$$
+$$ \Longrightarrow n+2 \mid 7n+19-7n-14$$
+$$ \Longrightarrow n+2 \mid 19-14 \Longrightarrow n+2 \mid 5$$
+Ahora, esto nos sirve ya que implicaría que $n+2$ sería un divisor de 5, ya que lo divide; pero, al ser número primo entonces sus únicos divisores serían el 1 y el mismo 5. Por lo tanto tenemos los casos:
+\begin{align*}
+	n+2=1 \Longrightarrow n=-1 \\ n+2=5 \Longrightarrow n=3
+\end{align*}
+Podemos notar que el caso $n=-1$ no se puede considerar en cuenta ya que no es un número natural. Por ello, el único $n$ que cumple dicha condición es $n=3$.
+\\\\
+Así mismo, como está redactado en el paquete. Si desea utilizar esta opción e incluso cambiar el nombre a conveniencia se puede hacer sin ningún problema. Especialmente si quiere quitar el \textit{Comité CVM} del encabezado y por ello, también se puede modificar.
+\end{document}
