@@ -1,0 +1,394 @@
+
+%%%███████████████████████████████████████████████████████████████████████████████████████████████████████%%%                                                                                                                                        
+%                                                                                                                  https://github.com/Diego-morazan/Avances_LaTeX                                                                                                                    %        
+%%-----------------------------------------------------------------                                                                                                ------------------------------------------------------------------ %%                           
+%      ██████╗    ██╗███████╗ ██████╗         ██████╗        ███╗         ███╗   ██████╗    ██████╗         █████╗   ███████╗   █████╗   ███╗          ██╗      %
+%      ██╔══ ██╗██║██╔════╝██╔════╝   ██╔═══  ██╗    ████╗   ████║██╔═══██╗ ██╔══██╗   ██╔══██╗╚══███╔╝██╔══██╗████╗       ██║      %
+%      ██║       ██║██║█████╗      ██║    ███╗  ██║           ██║    ██╔████╔██║██║         ██║ ██████╔╝   ███████║      ███╔╝   ███████║██╔██╗    ██║      %
+%      ██║       ██║██║██╔══╝      ██║       ██║  ██║           ██║    ██║╚██╔╝██║██║         ██║ ██╔══██╗   ██╔══██║   ███╔╝      ██╔══██║██║ ╚██╗██║      %
+%      ██████╔╝ ██║███████╗╚██████╔╝╚██████╔╝      ██║   ╚═╝   ██║╚██████╔╝ ██║         ██║██║      ██║███████╗██║      ██║██║    ╚████║      %
+%      ╚═════╝    ╚═╝╚══════╝ ╚═════╝        ╚═════╝         ╚═╝              ╚═╝ ╚═════╝      ╚═╝          ╚═╝╚═╝      ╚═╝╚══════╝╚═╝      ╚═╝╚═╝       ╚═══╝      %
+%%-----------------------------------------------------------------                                                                                                ------------------------------------------------------------------ %%
+%                                                                                                                  https://github.com/Diego-morazan/Avances_LaTeX                                                                                                                    % 
+%%%███████████████████████████████████████████████████████████████████████████████████████████████████████%%%                                                                                                                                              
+
+                                                                                                       
+ % Este paquete fue hecho por mi persona, Diego Alejandro Morazán Gómez. Termine de concretar las ideas bases y comandos esenciales el 25 de Agosto de 2025.            %
+ % La utilización de este paquete es totalmente permitida para cualquier usuario que lo desee                                                                                                                                     %             
+ % La creación de éste fue motivada debido a la creación de documentos para algunos proyectos/actividades en las cuales participo como:                                                     %
+ % ------ La Competencia Virtual de Matemáticas donde soy el encargado del área de Teoría de números, por ello la opción [CVM].                                                                   %         
+ % ------ Debido al anterior propósito y debido a algunas resoluciones que hago, cree la opción [Soluciones] para abarcar dicha área, aunque es una variante de [CVM]     %  
+ % ------ Realmente, la idea primitiva para la creación de este era tener mi propio paquete que me resumiera y resolvierá el problema de "copiar y pegar" prácticamen -    %    
+ %                                 te cada preámbulo donde solía tener la mayoría de paquetes que tengo en este paquete.  me colmaba la cabeza repetirlo para cada documento.       %  
+ %                                 Por ello, de ahí nace [Casual], simplemente para ocasiones donde no deba hacer algo complicado pero aún así no quiera copiar muchos paquetes.  %     
+
+ % Así como pueden notar, este paquete realmente es sencillo para algo profesional, aún así deseo mejorarlo hasta tener una versión definitiva, la versión publicada es      %
+ % digamos como una beta o algo parecido. Tome inspiración debido al paquete Evan.sty del poderosisímo Evan Chen, lo descubrí investigando algunos documentos      %
+ % que me pudieran servir como material didactico para las Olimpiadas Internacionales, donde vi que usaba un paquete llamado "Evan" y sus opciones como [sexy]          %
+ % cuando se abría el archivo .tex de algunos de sus documentos expuestos en su página web:    ---https://web.evanchen.cc/--- entonces descubrí dicha opción para       %
+ % mejorar mi experiencia en LaTeX, actualmente uso lo básico de LaTeX para crear documentos: MikTeX y TeXstudio, aunque deseo cambiar a Vim y usar TeXLive             % 
+ 
+ % Como última introducción, soy proveniente de Honduras y tengo 14 años. Así como he mencionado en el anterior párrafo, participo en las Olimpiadas de                      % 
+ % Matemáticas; Química; Física y Astronomía. En las cuales he tenido participación internacional en Matemáticas en la OMCC. Pero deseo mejorar toda mi experiencia   % 
+ % y conocimientos en las matemáticas. Por eso y más quise aprender LaTeX y tener mayor formalidad incluso en algunos trabajos escolares.                                                  %
+ % Por último, dejaré en otro apartado de Github el archivo .cwl para algunos comandos especiales como \begin{Teorema}                                                                                 %                                        
+                                                                                                                                                                                                                                                                                  
+%% Nota: La siguiente licencia está redactada en inglés, ya que es la versión oficial
+%% reconocida de la MIT License. El texto en inglés prevalece sobre cualquier traducción.
+
+%% morazan.sty
+%% -------------------------------------------------
+%% Paquete: morazan.sty
+%% Autor: Diego Alejandro Morazán Gómez
+%% Fecha: 2025-08-25
+%%
+%% Copyright (c) 2025–2027 Diego Alejandro Morazán Gómez
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a copy
+%% of this software and associated documentation files (the "Software"), to deal
+%% in the Software without restriction, including without limitation the rights
+%% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%% copies of the Software, and to permit persons to whom the Software is
+%% furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included in all
+%% copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+%% SOFTWARE.
+%% -------------------------------------------------
+
+
+
+
+
+
+\ProvidesPackage{morazan}[Diego Morazán]
+
+ %%-----------   Opciones -----------%
+\newif\ifCVMstyle
+\newif\ifSolucionesstyle
+\newif\ifCasualstyle
+
+\DeclareOption{CVM}{\CVMstyletrue}
+\DeclareOption{Soluciones}{\Solucionesstyletrue}
+\DeclareOption{Casual}{\Casualstyletrue}
+\ProcessOptions\relax
+
+% ----------------- Paquetes esenciales -----------------
+\RequirePackage[spanish]{babel}
+\RequirePackage{geometry}
+\RequirePackage{lmodern}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{etoolbox}
+
+
+% ----------------- Matemáticas-------------------------
+\RequirePackage{mathtools}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{bm}
+\RequirePackage{cancel}
+\RequirePackage{xfrac}
+\RequirePackage{icomma}
+\RequirePackage{empheq}
+\RequirePackage[most]{tcolorbox}
+\tcbuselibrary{theorems}
+\usetikzlibrary{arrows.meta}          
+\usetikzlibrary{arrows.meta,decorations.pathreplacing}
+\RequirePackage{tikz}
+
+% ----------------- Física -----------------
+\RequirePackage{physics}
+\RequirePackage{physics2}
+\RequirePackage{siunitx}
+\RequirePackage{circuitikz}
+\RequirePackage{tikz-3dplot}   
+
+% ----------------- Química -----------------
+\RequirePackage[version=4]{mhchem}
+\RequirePackage{chemfig}
+\RequirePackage{chemmacros}
+\RequirePackage{chemformula}   
+
+% ----------------- Tablas y matrices -----------------
+\RequirePackage{tabularx}
+\RequirePackage{mathtools} 
+\RequirePackage{nicematrix} 
+\RequirePackage{threeparttable} 
+\RequirePackage{multirow} 
+\RequirePackage{longtable} 
+
+
+% --------------------Presentación -----------------
+\RequirePackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}
+\RequirePackage{fancyhdr}
+\RequirePackage{titlesec}
+\RequirePackage{enumitem}
+\RequirePackage{graphicx}
+\RequirePackage{titling}
+\RequirePackage{array}
+\RequirePackage{multicol}
+\RequirePackage{parskip}
+\RequirePackage{caption}
+\RequirePackage{bicaption}
+\RequirePackage{mdframed}
+
+% -----------------Colores establecidos ---------------------------
+\definecolor{RojitoCVM}{RGB}{210, 35, 30}
+\definecolor{VerdecitoCVM}{RGB}{104, 150, 33}
+\definecolor{AzulitoCVM}{RGB}{38, 109, 207}
+\definecolor{AmarilloCVM}{RGB}{249, 149, 0}
+\definecolor{AzulM}{RGB}{16, 87, 173}
+\definecolor{AmarilloM}{RGB}{224, 167, 20} 
+\definecolor{RojoM}{RGB}{212, 67, 19} 
+\definecolor{VerdeM}{RGB}{27, 130, 22} 
+\definecolor{AmatistaM}{RGB}{90, 43, 135} 
+
+%%%----------------------    CVM-style     ----------------------  %%%
+\ifCVMstyle
+
+           \geometry{top=2.54cm, bottom=3.2cm, left=2.54cm, right=2.54cm}
+	\fancyhead[L]{\large\bfseries Comité \textbf{\textcolor{RojitoCVM}{C}}\textcolor{VerdecitoCVM}{V}\textcolor{black}{M} \\Teoría de números: \leftmark }
+           \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+           \renewcommand{\headrulewidth}{1.2pt}
+           \setlength{\headheight}{20pt}
+           \setlength{\headsep}{1.7cm}
+
+%%------------titulos------------%
+
+\titleformat{\subsubsection}[runin]
+{\color{VerdecitoCVM}\normalfont\normalsize\bfseries} 
+{\color{VerdecitoCVM}\thesubsubsection}               
+{1em}{}
+
+\titleformat{\subsection}
+{\color{AmarilloCVM}\normalfont\LARGE\bfseries} 
+{\color{AmarilloCVM}\thesubsection}                
+{1em}{}
+
+\titleformat{\section}
+{\color{AzulitoCVM}\normalfont\huge\bfseries} 
+{\color{AzulitoCVM}\thesection}                
+{1em}{}
+
+
+
+\titlespacing*{\section}{1pt}{2em}{2em}
+\newcommand{\bigcdot}{\mathbin{\vcenter{\hbox{\scalebox{1.5}{$\cdot$}}}}}
+
+
+%%----------------- Entornos creados -----------------%
+	\newtcbtheorem[number within=section]{definicion}{Definición}%
+	{colback=blue!5!white,colframe=AzulitoCVM!75!black,fonttitle=\bfseries}{def}
+	
+	\newtcbtheorem[number within=section]{Teorema}{Teorema}%
+	{colback=green!5!white, colframe=RojitoCVM!80!black, fonttitle=\bfseries, coltitle=white,
+		boxrule=0.8pt, arc=3mm, top=2mm, bottom=2mm}{teo}
+	
+
+	\newtcbtheorem[number within=section]{ejemplo}{Ejemplo}%
+	{colback=yellow!5!white,colframe=AmarilloCVM!75!black,fonttitle=\bfseries}{ej}
+
+        
+	\newtcbtheorem[number within=section]{Lema}{Lema}%
+           {colback=yellow!5!white,colframe=VerdecitoCVM!75!black,fonttitle=\bfseries}{ej}
+
+%%%% El siguiente comando lo pueden evitar, es simplemente para mis archivos de la CVM
+
+\newcommand{\CVMlogo}[1][0.3\textwidth]{
+  \pretitle{
+    \begin{center}
+      \includegraphics[width=#1]{CVMLogo3.pdf}\\[0cm]
+    }
+    \posttitle{\end{center}}
+  }
+}
+
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%-----------------------     Soluciones-style               ----------------------- %%%
+\ifSolucionesstyle
+	\fancyhead[L]{\large\bfseries   Soluciones: \leftmark }
+
+%%------------titulos------------%
+
+\titleformat{\subsubsection}[runin]
+{\color{AmarilloM}\normalfont\normalsize\bfseries} 
+{\color{AmarilloM}\thesubsubsection}             
+{1em}{}
+
+\titleformat{\subsection}
+{\color{RojoM}\normalfont\LARGE\bfseries} 
+{\color{RojoM}\thesubsection}               
+{1em}{}
+
+\titleformat{\section}
+{\color{AmatistaM}\normalfont\huge\bfseries} 
+{\color{AmatistaM}\thesection}                
+{1em}{}
+
+
+
+\titlespacing*{\section}{1pt}{2em}{2em}
+\newcommand{\bigcdot}{\mathbin{\vcenter{\hbox{\scalebox{1.5}{$\cdot$}}}}}
+
+           \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+           \renewcommand{\headrulewidth}{1.2pt}
+           \setlength{\headheight}{20pt}
+           \setlength{\headsep}{1.7cm}
+\geometry{top=2.54cm, bottom=2.54cm, left=2.54cm, right=2.54cm}
+
+%%--------------------------- Entornos creados ----------------------------%
+
+	\newtcbtheorem[number within=section]{definicion}{Definición}%
+	{colback=blue!5!white,colframe=AzulM!75!black,fonttitle=\bfseries}{def}
+	
+	\newtcbtheorem[number within=section]{Teorema}{Teorema}%
+	{colback=green!5!white, colframe=AmatistaM!80!black, fonttitle=\bfseries, coltitle=white,
+		boxrule=0.8pt, arc=3mm, top=2mm, bottom=2mm}{teo}
+	
+	\newtcbtheorem[number within=section]{ejemplo}{Ejemplo}%
+	{colback=yellow!5!white,colframe=AmarilloM!75!black,fonttitle=\bfseries}{ej}
+
+	\newtcbtheorem[number within=section]{Lema}{Lema}%
+           {colback=yellow!5!white,colframe=RojoM!75!black,fonttitle=\bfseries}{ej}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%---------------------------------------------    Casual-style      ---------------------------------------------%%%
+\ifCasualstyle
+
+           \geometry{top=2.54cm, bottom=3.2cm, left=2.54cm, right=2.54cm}
+	\fancyhead[L]{\bfseries  \Large \color{AzulM} Diego Morazán}
+           \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+           \renewcommand{\headrulewidth}{1.2pt}
+           \setlength{\headheight}{20pt}
+           \setlength{\headsep}{1.7cm}
+
+
+
+%%--------------------------- Entornos creados ----------------------------%
+
+
+	\newtcbtheorem[number within=section]{definicion}{Definición}%
+	{colback=blue!5!white,colframe=AzulM!75!black,fonttitle=\bfseries}{def}
+	
+	\newtcbtheorem[number within=section]{Teorema}{Teorema}%
+	{colback=green!5!white, colframe=AmatistaM!80!black, fonttitle=\bfseries, coltitle=white,
+		boxrule=0.8pt, arc=3mm, top=2mm, bottom=2mm}{teo}
+	
+	\newtcbtheorem[number within=section]{ejemplo}{Ejemplo}%
+	{colback=yellow!5!white,colframe=AmarilloM!75!black,fonttitle=\bfseries}{ej}
+
+	\newtcbtheorem[number within=section]{Lema}{Lema}%
+           {colback=yellow!5!white,colframe=RojoM!75!black,fonttitle=\bfseries}{ej}
+
+%%------------titulos------------%
+\titleformat{\subsubsection}[runin]
+{\color{AmarilloM}\normalfont\normalsize\bfseries} 
+{\color{AmarilloM}\thesubsubsection}                
+{1em}{}
+
+\titleformat{\subsection}
+{\color{RojoM}\normalfont\large\bfseries} 
+{\color{RojoM}\thesubsection}           
+{1em}{}
+
+\titleformat{\section}
+{\color{AmatistaM}\normalfont\Large\bfseries} 
+{\color{AmatistaM}\thesection}             
+{1em}{}
+
+
+
+\titlespacing*{\section}{1pt}{2em}{2em}
+\newcommand{\bigcdot}{\mathbin{\vcenter{\hbox{\scalebox{1.5}{$\cdot$}}}}}
+
+           \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+           \renewcommand{\headrulewidth}{1.2pt}
+           \setlength{\headheight}{20pt}
+           \setlength{\headsep}{1.7cm}
+
+ \fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%------------------    Entornos simples      ------------------%%
+\newtheoremstyle{teoremaColorAzul}
+{\topsep}
+{\topsep}
+{\itshape}
+{}
+{\color{RojitoCVM}\bfseries}
+{.}
+{  }
+{\color{RojitoCVM}#1\ #2\thmnote{ (#3)}}
+
+\theoremstyle{teoremaColorAzul}
+\newtheorem{teorema}{Teorema}[subsubsection]
+
+
+\newtheoremstyle{estiloColorAzul}
+{\topsep}
+{\topsep}
+{\itshape}
+{}
+{\bfseries}
+{.}
+{ }
+{\color{blue}#1\ #2\thmnote{ (#3)}}
+\theoremstyle{estiloColorAzul}
+\newtheorem{lema}{Lema}[subsubsection]
+
+
+%%%------------------------ Comandos/Atajos extras ------------------------%%%
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\RP}{\mathbb{R}^{+}}
+\newcommand{\RN}{\mathbb{R}^{-}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\ZN}{\mathbb{Z}^{-}}
+\newcommand{\ZP}{\mathbb{Z}^{+}}
+\newcommand{\sm}{\si{m}}
+\newcommand{\Ss}{\si{s}}
+\newcommand{\smin}{\si{min}}
+\newcommand{\sL}{\si{L}}
+\newcommand{\skm}{\si{km}}
+\newcommand{\sh}{\si{h}}
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+\newcommand{\dg}{^\circ}
+\newcommand{\Ll}{\lvert}
+\newcommand{\lr}{\rvert}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%% Configuración extra del encabezado %%
+\setlength{\headheight}{20pt}
+\setlength{\headsep}{1.7cm} 
+\fancyhead[C]{}
+\fancyhead[R]{\large\bfseries Página \thepage}
+\renewcommand{\headrulewidth}{1.2pt}
+\pagestyle{fancy}
+
