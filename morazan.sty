@@ -203,13 +203,13 @@
 
 %%%% El siguiente comando lo pueden evitar, es simplemente para mis archivos de la CVM
 
-\newcommand{\CVMlogo}[1][0.3\textwidth]{
-  \pretitle{
+\newcommand{\CVMlogo}[1][0.3\textwidth]{%
+  \pretitle{%
     \begin{center}
       \includegraphics[width=#1]{CVMLogo3.pdf}\\[0cm]
-    }
-    \posttitle{\end{center}}
-  }
+    \end{center}%
+  }%
+  \posttitle{}%
 }
 
 \fi
@@ -391,4 +391,5 @@
 \fancyhead[R]{\large\bfseries Página \thepage}
 \renewcommand{\headrulewidth}{1.2pt}
 \pagestyle{fancy}
+
 
