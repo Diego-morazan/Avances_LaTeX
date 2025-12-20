@@ -1,0 +1,704 @@
+% Este paquete fue hecho por mi persona, Diego Alejandro Morazán Gómez. Termine de concretar las ideas bases y comandos esenciales el 25 de Agosto de 2025.            %
+% La utilización de este paquete es totalmente permitida para cualquier usuario que lo desee     
+
+
+%% Nota: La siguiente licencia está redactada en inglés, ya que es la versión oficial
+%% reconocida de la MIT License. El texto en inglés prevalece sobre cualquier traducción.
+
+%% mora.sty
+%% -------------------------------------------------
+%% Paquete: mora.sty
+%% Autor: Diego Alejandro Morazán Gómez
+%% Fecha: 2025-08-25
+%%
+%% Copyright (c) 2025–2027 Diego Alejandro Morazán Gómez
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a copy
+%% of this software and associated documentation files (the "Software"), to deal
+%% in the Software without restriction, including without limitation the rights
+%% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%% copies of the Software, and to permit persons to whom the Software is
+%% furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included in all
+%% copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+%% SOFTWARE.
+%% -------------------------------------------------
+
+\ProvidesPackage{mora}[Diego Morazán]
+
+\newif\ifdarkstyle
+\newif\ifcasualstyle
+
+
+\DeclareOption{dark}{\darkstyletrue}
+\DeclareOption{casual}{\casualstyletrue}
+\ProcessOptions\relax
+
+% Este paquete estará diseñado para ser usado en XeLatex, aún así cargaré algunos paquetes que podrían servir en la escritura
+
+\RequirePackage[spanish]{babel}
+\RequirePackage{geometry}
+\RequirePackage{fontspec}
+\RequirePackage{etoolbox}
+\RequirePackage{microtype}
+
+%%%% Matemáticas %%%%
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+\RequirePackage{mathrsfs}
+\RequirePackage{stmaryrd}
+\RequirePackage{wasysym}
+\RequirePackage{derivative}
+\RequirePackage{amsfonts}
+\RequirePackage{bm}
+\RequirePackage{cancel}
+\RequirePackage{xfrac}
+\RequirePackage{icomma}
+\RequirePackage{empheq}
+\RequirePackage{tikz}        
+\usetikzlibrary{arrows.meta,decorations.pathreplacing}
+\RequirePackage{pgfplots}
+
+%%%% Entornos personalizados %%%%
+
+\PassOptionsToPackage{usenames,svgnames,dvipsnames}{xcolor}
+\RequirePackage{xcolor}
+\RequirePackage{thmtools}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins}
+\tcbuselibrary{breakable}
+
+
+%%%% Para la personalización como títulos, colores, ect %%%%
+
+\RequirePackage[normalem]{ulem}
+\RequirePackage[colorlinks]{hyperref}
+\RequirePackage[nameinlink]{cleveref}
+\RequirePackage[textsize=scriptsize,shadow]{todonotes}
+\RequirePackage{textcomp}
+\RequirePackage{titlesec}
+\RequirePackage{chngcntr}
+\RequirePackage{tocloft}
+\RequirePackage{fancyhdr}
+\RequirePackage{graphicx}
+\RequirePackage{titling}
+\RequirePackage{array}
+\RequirePackage{multicol}
+\RequirePackage{parskip}
+\RequirePackage{caption}
+\RequirePackage{bicaption}
+\RequirePackage{mdframed}
+
+%%%% Listas y estructuras %%%%
+
+\RequirePackage{enumerate}
+\RequirePackage{multirow}
+\RequirePackage{enumitem}
+\RequirePackage{prerex}
+
+%%%% Para física %%%%
+
+\RequirePackage{physics}
+\RequirePackage{physics2}
+\RequirePackage{tensor}
+\RequirePackage{bm}
+
+%%%% Colores personalizados %%%%
+
+\definecolor{RojitoCVM}{RGB}{210, 35, 30}
+\definecolor{VerdecitoCVM}{RGB}{104, 150, 33}
+\definecolor{AzulitoCVM}{RGB}{38, 109, 207}
+\definecolor{AmarilloCVM}{RGB}{249, 149, 0}
+\definecolor{AzulM}{RGB}{16, 87, 173}
+\definecolor{AmarilloM}{RGB}{224, 167, 20} 
+\definecolor{RojoM}{RGB}{212, 67, 19} 
+\definecolor{VerdeM}{RGB}{27, 130, 22} 
+\definecolor{AmatistaM}{RGB}{90, 43, 135} 
+\definecolor{RedViolet}{RGB}{199, 21, 133}
+
+
+%% Otros colores, es para que no se vean todos apiñados y es oara darkstyle %%
+
+\definecolor{darkazul}{RGB}{47, 108, 235}  
+\definecolor{darkrojo}{RGB}{224, 50, 9} 
+\definecolor{darkamarillo}{RGB}{204, 149, 6} 
+\definecolor{darkverde}{RGB}{31, 179, 5} 
+\definecolor{darkamatista}{RGB}{140, 0, 179} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  casual style %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifcasualstyle
+
+%%%% Entornos personalizados %%%%
+
+\newcommand{\prototype}[1]{
+	\emph{{\color{red} Prototypical example for this section:} #1} \par\medskip
+}
+\newenvironment{moral}{%
+	\begin{tcolorbox}[boxrule=0.4pt,colframe=VerdecitoCVM!70!black,sharp corners,
+		standard jigsaw,opacityback=0,left=10pt,right=10pt,top=3pt,bottom=3pt,
+		before skip=10pt,after skip=20pt]%
+		\bfseries\color{VerdecitoCVM!50!black}}%
+	{\end{tcolorbox}}
+
+\hypersetup{
+	linkcolor={AmatistaM!100!black},
+	citecolor={green!50!black},
+	urlcolor={AmatistaM!80!black},
+} %%----- Este es oara el color de links y url´s
+
+
+
+
+
+\theoremstyle{definition}
+\declaretheoremstyle[
+headfont=\sffamily\bfseries\color{AzulM},
+headpunct={\\[3pt]},
+postheadspace={0pt},
+]{thmtheorem}
+
+
+\declaretheoremstyle[
+headfont=\bfseries\color{RojoM},
+headpunct={\\[3pt]},
+postheadspace={0pt},
+]{thmexample}
+
+
+\declaretheoremstyle[
+headfont=\bfseries\color{AmatistaM},
+headpunct={\hspace*{0.30cm}},
+postheadspace={0pt},
+]{thmproblem}
+
+\tcbset{
+	theorem box/.style={
+		enhanced,
+		arc=5pt,
+		outer arc=5.5pt,
+		colframe=AzulM,
+		colback=AzulM!10,
+		boxrule=1pt,
+		before skip=12pt,
+		after skip=14pt,
+		left=10pt,
+		right=10pt
+	},
+	remark box/.style={
+		boxrule=0pt,
+		frame hidden,
+		sharp corners,
+		enhanced,
+		borderline west={2pt}{0pt}{VerdecitoCVM},
+		before skip=8pt,
+		colback=VerdecitoCVM!10,
+		after skip=12pt,
+		breakable,
+		left=10pt,
+		right=10pt, 
+	},
+	example box/.style={
+		enhanced,
+                     arc=5pt,
+		outer arc=5pt,
+		colback=RojoM!10,
+		boxrule=1pt,
+		before skip=12pt,
+		after skip=14pt,
+		breakable,
+		top=6pt,
+		bottom=8pt,
+		left=10pt,
+		right=10pt,
+		colframe=RojoM
+	},
+	ques box/.style={
+		boxrule=0pt,
+		frame hidden,
+		enhanced,
+		sharp corners,
+		before skip=8pt,
+		after skip=12pt,
+		borderline west={3pt}{0pt}{AmarilloCVM},
+		colback=AmarilloM!9,
+		breakable,
+		left=10pt,
+		right=10pt
+	}
+,
+	problem box/.style={
+		enhanced,
+		arc=5pt,
+		outer arc=5.5pt,
+		colframe=AmatistaM,
+		colback=AmatistaM!10,
+		boxrule=1pt,
+		before skip=12pt,
+		after skip=14pt,
+		left=10pt,
+		right=10pt
+	}
+}
+
+\declaretheorem[style=thmtheorem,name=Teorema,numberwithin=section]{teorema}
+\tcolorboxenvironment{teorema}{theorem box}
+
+\declaretheorem[style=thmtheorem,name=Propiedades,numberwithin=section]{propi}
+\tcolorboxenvironment{propi}{theorem box}
+
+\declaretheorem[style=thmtheorem,name=Lema,numberwithin=section]{lema}
+\tcolorboxenvironment{lema}{theorem box}
+
+\declaretheorem[style=thmtheorem,name=Proposición,numberwithin=section]{proposición}
+\tcolorboxenvironment{proposición}{theorem box}
+
+\declaretheorem[style=thmtheorem,name=Corolario,numberwithin=section]{corolario}
+\tcolorboxenvironment{corolario}{theorem box}
+
+\declaretheorem[style=thmexample,name=Ejemplo,numberwithin=section]{ejemplo}
+\tcolorboxenvironment{ejemplo}{example box}
+
+\declaretheorem[style=thmproblem,name=Problema]{problema}
+\tcolorboxenvironment{problema}{problem box}
+
+\pretocmd{\section}{\setcounter{problema}{0}}{}{}
+
+% --- estilos remark y ques (sin cambiar) ---
+
+\declaretheoremstyle[
+headfont=\bfseries\sffamily\color{VerdecitoCVM!80!black},
+bodyfont=\normalfont,
+headpunct={ --- },
+]{thmremark}
+
+\declaretheoremstyle[
+headfont=\bfseries\sffamily\color{VerdecitoCVM!80!black},
+bodyfont=\normalfont,
+headpunct={},
+]{thmremark*}
+
+\declaretheoremstyle[
+headfont=\bfseries,
+bodyfont=\normalfont\small
+]{thmques}
+
+\declaretheorem[name=Pregunta,style=thmques,numberwithin=section]{pregunta}
+\tcolorboxenvironment{pregunta}{ques box}
+
+\declaretheorem[name=Ejercicio,style=thmques,numberwithin=section]{ejercicio}
+\tcolorboxenvironment{ejercicio}{ques box}
+
+\declaretheorem[name=Observación,style=thmremark,numberwithin=section]{observ}
+\tcolorboxenvironment{observ}{remark box}
+
+\declaretheorem[name=Observación,style=thmremark*,numberwithin=section]{observ*}
+\tcolorboxenvironment{observ*}{remark box}
+
+\declaretheorem[name=Paso,style=thmremark,numberwithin=section]{paso}
+\tcolorboxenvironment{paso}{remark box}
+
+
+\declaretheorem[name=Afirmación,numberwithin=section]{claim}
+\declaretheorem[name=Definición,numberwithin=section]{definición}
+\declaretheorem[name=Dato,numberwithin=section]{dato}
+\declaretheorem[name=Abuso de Notación,numberwithin=section]{abuso}
+
+% --- problema independiente con subproblemas especiales ---
+\newtheorem{problem}{Problema}[section] 
+\renewcommand{\theproblem}{\thesection\Alph{problem}}
+ \newtheorem{sproblem}[problem]{Problema}
+ \newtheorem{dproblem}[problem]{Problema}
+ \renewcommand{\thesproblem}{\theproblem$^{\star}$} 
+\renewcommand{\thedproblem}{\theproblem$^{\dagger}$} 
+\newcommand{\listhack}{$\empty$\vspace{-2em}}
+
+
+
+%%   Esos serían los únicos enternos, de ahí está la configuración de los encabezados, índice y otros detalles, pero eso sólamente lo incluiré en el fuente del código latex%%
+
+
+ %% Títulloooooooooooooooooooooooooooooooooosssssssssssssssssssssssssss %%
+    \setlength{\cftsecindent}{1em}         
+    \setlength{\cftsubsecindent}{3.5em}   
+    
+    
+    \setlength{\cftsecnumwidth}{1.5em}     
+    \setlength{\cftsubsecnumwidth}{2em}   
+    
+    \renewcommand{\cftsecfont}{\normalfont\normalsize\large\color{AmatistaM}}     
+    \renewcommand{\cftsubsecfont}{\normalfont\normalsize}  
+    
+    
+    
+    \renewcommand{\cftsecpagefont}{\normalfont\normalsize\color{black}}
+    \renewcommand{\cftsubsecpagefont}{\normalfont\small\color{black}}
+    
+    \titleformat{\section}
+    {\normalfont\Large\bfseries}
+    {\makebox[0pt][l]{\fontsize{40}{40}\color{AmatistaM}\sffamily\selectfont\thesection}}
+    {4em}
+    {\sffamily\Huge} 
+    
+    \titleformat{\subsection}
+    {\bfseries\Large}
+    {\Large\thesubsection}
+    {0.8em}
+    {}
+    
+    
+    \preto{\section}{\thispagestyle{plain}}
+    
+    \renewcommand{\thesubsection}{\thesection.\roman{subsection}}
+    
+    
+    \renewcommand{\thesection}{\arabic{section}}
+    
+    \fi    
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% dark style  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifdarkstyle
+
+\RequirePackage{darkmode}
+
+
+ %% títulos %%
+     \titleformat{\section}
+     {\normalfont\Large\bfseries}
+     {\makebox[0pt][l]{\fontsize{40}{40}\color{darkazul}\sffamily\selectfont\thesection}}
+     {3em}
+     {\sffamily\Huge} 
+     
+     \titleformat{\subsection}
+     {\bfseries\Large}
+     {\Large\thesubsection}
+     {0.8em}
+     {}
+     
+     
+     \preto{\section}{\thispagestyle{plain}}
+     
+     \renewcommand{\thesubsection}{\thesection.\roman{subsection}}
+     
+     
+     \renewcommand{\thesection}{\arabic{section}}
+     
+     \setlength{\cftsecindent}{1em}         
+     \setlength{\cftsubsecindent}{3.5em}   
+     
+     
+     \setlength{\cftsecnumwidth}{1.5em}     
+     \setlength{\cftsubsecnumwidth}{2em}   
+     
+     \renewcommand{\cftsecfont}{\normalfont\normalsize\large\color{darkazul}}     
+     \renewcommand{\cftsubsecfont}{\normalfont\normalsize}  
+     
+     
+     
+     \renewcommand{\cftsecpagefont}{\normalfont\normalsize\color{white}}
+     \renewcommand{\cftsubsecpagefont}{\normalfont\small\color{white}}
+     
+
+
+
+  %% Entornos personalizados %%
+     \hypersetup{
+     	linkcolor={darkamatista},
+     	citecolor={darkverde!50!white},
+     	urlcolor={darkazul},
+     } %%----- Este es oara el color de links y url´s
+     
+     
+     \theoremstyle{definition}
+     \declaretheoremstyle[
+     headfont=\sffamily\bfseries\color{darkazul},
+     headpunct={\\[3pt]},
+     postheadspace={0pt},
+       bodyfont=\normalfont\color{white},
+     ]{thmtheorem}
+     
+     
+     \declaretheoremstyle[
+     headfont=\bfseries\color{darkrojo},
+     headpunct={\\[3pt]},
+     postheadspace={0pt},
+     bodyfont=\normalfont\color{white},
+     ]{thmexample}
+     
+     
+     \declaretheoremstyle[
+     headfont=\bfseries\color{darkamatista},
+     headpunct={\hspace*{0.30cm}},
+     postheadspace={0pt},
+     bodyfont=\normalfont\color{white},
+     ]{thmproblem}
+     
+     \tcbset{
+     	theorem box/.style={
+     		enhanced,
+     		arc=5pt,
+     		outer arc=5.5pt,
+     		colframe=darkazul,
+     		colback=darkazul!10!black!90!,
+     		boxrule=1pt,
+     		before skip=12pt,
+     		after skip=14pt,
+     		left=10pt,
+     		right=10pt
+     	},
+     	remark box/.style={
+     		boxrule=0pt,
+     		frame hidden,
+     		sharp corners,
+     		enhanced,
+     		borderline west={2pt}{0pt}{darkverde},
+     		before skip=8pt,
+     		colback=darkverde!10!black!90!,
+     		after skip=12pt,
+     		breakable,
+     		left=10pt,
+     		right=10pt, 
+     	},
+     	example box/.style={
+     		enhanced,
+     		arc=5pt,
+     		outer arc=5pt,
+     		colback=darkrojo!10!black!90!,
+     		boxrule=1pt,
+     		before skip=12pt,
+     		after skip=14pt,
+     		breakable,
+     		top=6pt,
+     		bottom=8pt,
+     		left=10pt,
+     		right=10pt,
+     		colframe=darkrojo
+     	},
+     	ques box/.style={
+     		boxrule=0pt,
+     		frame hidden,
+     		enhanced,
+     		sharp corners,
+     		before skip=8pt,
+     		after skip=12pt,
+     		borderline west={3pt}{0pt}{darkamarillo},
+     		colback=darkamarillo!10!black!95!,
+     		breakable,
+     		left=10pt,
+     		right=10pt,
+     	}
+     	,
+     	problem box/.style={
+     		enhanced,
+     		arc=5pt,
+     		outer arc=5.5pt,
+     		colframe=darkamatista,
+     		colback=darkamatista!10!black!95!,
+     		boxrule=1pt,
+     		before skip=12pt,
+     		after skip=14pt,
+     		left=10pt,
+     		right=10pt
+     	}
+     }
+     
+     
+     \declaretheorem[style=thmtheorem,name=Teorema,numberwithin=section]{teorema}
+     \tcolorboxenvironment{teorema}{theorem box}
+     
+     \declaretheorem[style=thmtheorem,name=Propiedades,numberwithin=section]{propi}
+     \tcolorboxenvironment{propi}{theorem box}
+     
+     \declaretheorem[style=thmtheorem,name=Lema,numberwithin=section]{lema}
+     \tcolorboxenvironment{lema}{theorem box}
+     
+     \declaretheorem[style=thmtheorem,name=Proposición,numberwithin=section]{proposición}
+     \tcolorboxenvironment{proposición}{theorem box}
+     
+     \declaretheorem[style=thmtheorem,name=Corolario,numberwithin=section]{corolario}
+     \tcolorboxenvironment{corolario}{theorem box}
+     
+     \declaretheorem[style=thmexample,name=Ejemplo,numberwithin=section]{ejemplo}
+     \tcolorboxenvironment{ejemplo}{example box}
+     
+     \declaretheorem[style=thmproblem,name=Problema]{problema}
+     \tcolorboxenvironment{problema}{problem box}
+     
+     \pretocmd{\section}{\setcounter{problema}{0}}{}{}
+     
+     % --- estilos remark y ques (sin cambiar) ---
+     
+     \declaretheoremstyle[
+     headfont=\bfseries\sffamily\color{darkverde},
+     bodyfont=\normalfont\color{white},
+     headpunct={ --- },
+     ]{thmremark}
+     
+     \declaretheoremstyle[
+     headfont=\bfseries\sffamily\color{darkverde},
+     bodyfont=\normalfont\color{white},
+     headpunct={},
+     ]{thmremark*}
+     
+     \declaretheoremstyle[
+     headfont=\bfseries\color{darkamarillo},
+     bodyfont=\normalfont\color{white}
+     ]{thmques}
+     
+     \declaretheorem[name=Pregunta,style=thmques,numberwithin=section]{pregunta}
+     \tcolorboxenvironment{pregunta}{ques box}
+     
+     \declaretheorem[name=Ejercicio,style=thmques,numberwithin=section]{ejercicio}
+     \tcolorboxenvironment{ejercicio}{ques box}
+     
+     \declaretheorem[name=Observación,style=thmremark,numberwithin=section]{observ}
+     \tcolorboxenvironment{observ}{remark box}
+     
+     \declaretheorem[name=Observación,style=thmremark*,numberwithin=section]{observ*}
+     \tcolorboxenvironment{observ*}{remark box}
+     
+     \declaretheorem[name=Paso,style=thmremark,numberwithin=section]{paso}
+     \tcolorboxenvironment{paso}{remark box}
+     
+     
+     \declaretheorem[name=Afirmación,numberwithin=section]{claim}
+     \declaretheorem[name=Definición,numberwithin=section]{definición}
+     \declaretheorem[name=Dato,numberwithin=section]{dato}
+     \declaretheorem[name=Abuso de Notación,numberwithin=section]{abuso}
+     
+     % --- problema independiente con subproblemas especiales ---
+     \newtheorem{problem}{Problema}[section] 
+     \renewcommand{\theproblem}{\thesection\Alph{problem}}
+     \newtheorem{sproblem}[problem]{Problema}
+     \newtheorem{dproblem}[problem]{Problema}
+     \renewcommand{\thesproblem}{\theproblem$^{\star}$} 
+     \renewcommand{\thedproblem}{\theproblem$^{\dagger}$} 
+     \newcommand{\listhack}{$\empty$\vspace{-2em}}
+     
+
+
+\fi
+
+
+
+
+%%%% Atajos %%%%
+
+\newcommand{\dark}{\enabledarkmode}
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\RP}{\mathbb{R}^{+}}
+\newcommand{\RN}{\mathbb{R}^{-}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\ZN}{\mathbb{Z}^{-}}
+\newcommand{\ZP}{\mathbb{Z}^{+}}
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+\newcommand{\dg}{^\circ}
+\newcommand{\lv}{\lvert}
+\newcommand{\rv}{\rvert}
+\newcommand{\SolN}{\textbf{Solución: }}
+\newcommand{\SolNp}{\textbf{Solución. }}
+\newcommand{\Solit}{\textit{Solución: }}
+\newcommand{\Solitp}{\textit{Solución. }} %%--- Todos esos atajos debido a que es tedioso escribir muchos problemas y así mismo algo tan repetitivo como "Solución:", pero de ahí hay varios estilo, Personalmente, me gusta más el de \SolNp
+\newcommand{\Rw}{\Rightarrow}
+\newcommand{\rw}{\rightarrow}
+\newcommand{\Lrw}{\Longrightarrow}
+\newcommand{\lrw}{\longrightarrow}
+\newcommand{\hs}{\hspace*{0.15cm}} %%--- Este es por si en alguna ecuación desean poner como un texto en medio, o simplemente no usar \squad, por ejemplo: [\cycsum a^2b=\cycprod ab \hs ; \hs a,b,c \in \RP]
+\newcommand{\lc}{\left(}
+\newcommand{\lcm}{\text{lcm}}
+\newcommand{\rc}{\right)}
+\newcommand{\eq}{\equiv} 
+\newcommand{\tri}{\triangle} 
+\newcommand{\an}{\angle} 
+\newcommand{\parl}{\parallel} 
+\newcommand{\bs}{\hfill \(\blacksquare\)}
+\newcommand{\llll}{\left[ }
+\newcommand{\rl}{\right]}
+
+ %% letras griegas %%
+     \newcommand{\al}{\alpha}
+     \newcommand{\be}{\beta}
+     \newcommand{\g}{\gamma}
+         \newcommand{\ggm}{\Gamma}
+     \newcommand{\de}{\delta}
+         \newcommand{\dde}{\Delta}
+     \newcommand{\e}{\epsilon}
+         
+     \newcommand{\z}{\zeta}
+     \newcommand{\et}{\eta}
+         
+     \newcommand{\te}{\theta}
+     \newcommand{\io}{\iota}
+     \newcommand{\ka}{\kappa}
+     \newcommand{\la}{\lambda}
+     \newcommand{\m}{\mu}
+     \newcommand{\n}{\nu}
+     \newcommand{\x}{\xi}
+     \newcommand{\p}{\pi}
+     \newcommand{\rh}{\rho}
+     \newcommand{\s}{\sigma}
+         \newcommand{\ssi}{\Sigma}
+     \newcommand{\ta}{\tau}
+     \newcommand{\up}{\upsilon}
+     \newcommand{\ph}{\phi}
+         \newcommand{\pph}{\Phi}
+     \newcommand{\ch}{\chi}
+         \newcommand{\cc}{\Chi}
+     \newcommand{\ps}{\psi}
+         \newcommand{\pps}{\Psi}
+     \newcommand{\om}{\omega}
+         \newcommand{\oo}{\Omega}
+     \newcommand{\vp}{\varphi}
+     \newcommand{\vs}{\varsigma}
+     \newcommand{\vk}{\varkappa}
+     
+   
+
+%% Atajos para títulos o texto en general%%
+ \newcommand{\bf}{\bfseries}
+ \newcommand{\hbf}{\huge \bfseries}
+ \newcommand{\lbf}{\Large \bfseries}
+ \newcommand{\llbf}{\large \bfseries}
+ \newcommand{\sff}{\sffamily}
+ 
+
+%% Atajos para colores
+  %% CVM
+     \newcommand{\rojito}{\color{RojitoCVM}}
+     \newcommand{\verdecito}{\color{VerdecitoCVM}}
+     \newcommand{\azulito}{\color{AzulitoCVM}}
+     \newcommand{\amarilloc}{\color{AmarilloCVM}}
+  
+  %% Medios
+     \newcommand{\azulmcolor}{\color{AzulM}}
+     \newcommand{\amarillomcolor}{\color{AmarilloM}}
+     \newcommand{\rojomcolor}{\color{RojoM}}
+     \newcommand{\verdemcolor}{\color{VerdeM}}
+     \newcommand{\amatistamcolor}{\color{AmatistaM}}
+     \newcommand{\redvioletcolor}{\color{RedViolet}}
+  
+  %% Dark
+     \newcommand{\darkazul}{\color{darkazul}}
+     \newcommand{\darkrojo}{\color{darkrojo}}
+     \newcommand{\darkamarillo}{\color{darkamarillo}}
+     \newcommand{\darkverde}{\color{darkverde}}
+     \newcommand{\darkamatista}{\color{darkamatista}}
+   
